@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Starbucks.MenuManager.API.Infrastructure\Starbucks.MenuManager.API.Infrastructure.csproj" />
-    <ProjectReference Include="..\Starbucks.MenuManager.API.Persistence\Starbucks.MenuManager.API.Persistence.csproj" />
     <ProjectReference Include="..\Starbucks.MenuManager.API.Transversal\Starbucks.MenuManager.API.Transversal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\Services\" />
+    <Folder Include="Interfaces\Repositories\" />
   </ItemGroup>
 
 </Project>

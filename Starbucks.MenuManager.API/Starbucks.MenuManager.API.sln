@@ -13,23 +13,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servicio", "Servicio", "{DF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transversal", "Transversal", "{1451398E-98F1-4516-BF85-05A6884EC4A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbucks.MenuManager.API", "Starbucks.MenuManager.API\Starbucks.MenuManager.API.csproj", "{B36B920C-3A28-4CDD-9C3D-934F0C86A815}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starbucks.MenuManager.API", "Starbucks.MenuManager.API\Starbucks.MenuManager.API.csproj", "{B36B920C-3A28-4CDD-9C3D-934F0C86A815}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CF430AB9-B3D5-4692-9F97-D37EA5B9695D} = {CF430AB9-B3D5-4692-9F97-D37EA5B9695D}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbucks.MenuManager.API.Application", "Starbucks.MenuManager.API.Application\Starbucks.MenuManager.API.Application.csproj", "{CF430AB9-B3D5-4692-9F97-D37EA5B9695D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starbucks.MenuManager.API.Application", "Starbucks.MenuManager.API.Application\Starbucks.MenuManager.API.Application.csproj", "{CF430AB9-B3D5-4692-9F97-D37EA5B9695D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbucks.MenuManager.API.Domain", "Starbucks.MenuManager.API.Domain\Starbucks.MenuManager.API.Domain.csproj", "{301D0635-3EC1-4720-8E6F-DDB903EDEA5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starbucks.MenuManager.API.Domain", "Starbucks.MenuManager.API.Domain\Starbucks.MenuManager.API.Domain.csproj", "{301D0635-3EC1-4720-8E6F-DDB903EDEA5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbucks.MenuManager.API.Infrastructure", "Starbucks.MenuManager.API.Infrastructure\Starbucks.MenuManager.API.Infrastructure.csproj", "{5A089A35-66B3-429E-9C75-1A35B7E1C0DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starbucks.MenuManager.API.Infrastructure", "Starbucks.MenuManager.API.Infrastructure\Starbucks.MenuManager.API.Infrastructure.csproj", "{5A089A35-66B3-429E-9C75-1A35B7E1C0DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbucks.MenuManager.API.Persistence", "Starbucks.MenuManager.API.Persistence\Starbucks.MenuManager.API.Persistence.csproj", "{70D26467-8A4C-4AA0-AAA6-DB8B57A4FB16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starbucks.MenuManager.API.Persistence", "Starbucks.MenuManager.API.Persistence\Starbucks.MenuManager.API.Persistence.csproj", "{70D26467-8A4C-4AA0-AAA6-DB8B57A4FB16}"
 	ProjectSection(ProjectDependencies) = postProject
 		{301D0635-3EC1-4720-8E6F-DDB903EDEA5A} = {301D0635-3EC1-4720-8E6F-DDB903EDEA5A}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbucks.MenuManager.API.Transversal", "Starbucks.MenuManager.API.Transversal\Starbucks.MenuManager.API.Transversal.csproj", "{D302182E-212A-4003-A629-575CD6ABFD15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starbucks.MenuManager.API.Transversal", "Starbucks.MenuManager.API.Transversal\Starbucks.MenuManager.API.Transversal.csproj", "{D302182E-212A-4003-A629-575CD6ABFD15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prueba", "Prueba", "{858242EE-C8A6-4BA3-B3F1-D433D103528D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbucks.MenuManager.API.Test", "Starbucks.MenuManager.API.Test\Starbucks.MenuManager.API.Test.csproj", "{73B93A45-D3B6-4E29-A7FC-E0DD5412A359}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +65,10 @@ Global
 		{D302182E-212A-4003-A629-575CD6ABFD15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D302182E-212A-4003-A629-575CD6ABFD15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D302182E-212A-4003-A629-575CD6ABFD15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73B93A45-D3B6-4E29-A7FC-E0DD5412A359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B93A45-D3B6-4E29-A7FC-E0DD5412A359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73B93A45-D3B6-4E29-A7FC-E0DD5412A359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73B93A45-D3B6-4E29-A7FC-E0DD5412A359}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +80,7 @@ Global
 		{5A089A35-66B3-429E-9C75-1A35B7E1C0DF} = {9F06B706-3E22-478E-AF69-80183D832390}
 		{70D26467-8A4C-4AA0-AAA6-DB8B57A4FB16} = {9F06B706-3E22-478E-AF69-80183D832390}
 		{D302182E-212A-4003-A629-575CD6ABFD15} = {1451398E-98F1-4516-BF85-05A6884EC4A5}
+		{73B93A45-D3B6-4E29-A7FC-E0DD5412A359} = {858242EE-C8A6-4BA3-B3F1-D433D103528D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0EB24DD0-1EA5-4AC8-B47A-E2D535B59562}

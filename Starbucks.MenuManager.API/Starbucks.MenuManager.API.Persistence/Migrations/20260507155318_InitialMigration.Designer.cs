@@ -11,7 +11,7 @@ using Starbucks.MenuManager.API.Persistence.Contexts;
 namespace Starbucks.MenuManager.API.Persistence.Migrations
 {
     [DbContext(typeof(StarbucksDbContext))]
-    [Migration("20260504174636_InitialMigration")]
+    [Migration("20260507155318_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />

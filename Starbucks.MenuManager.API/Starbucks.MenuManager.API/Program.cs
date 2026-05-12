@@ -10,7 +10,26 @@ builder.Services.AddControllers();
 
 builder.Services.AddPersistence(builder.Configuration);
 
+//builder.Services.AddSwagger();
+
 var app = builder.Build();
+
+//// configure the Http request pipeline
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseDeveloperExceptionPage();
+//    var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+//    app.UseSwagger();
+//    app.UseSwaggerUI(c =>
+//    {
+//        // build a swagger endpoint for each discovered API version
+
+//        foreach (var description in provider.ApiVersionDescriptions)
+//        {
+//            c.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
+//        }
+//    });
+//}
 
 await app.ApplyMigration(environment);
 

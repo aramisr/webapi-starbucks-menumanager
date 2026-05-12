@@ -1,6 +1,6 @@
 @Starbucks.MenuManager.API_HostAddress = http://localhost:5088
 
-GET {{Starbucks.MenuManager.API_HostAddress}}/weatherforecast/
+GET {{Starbucks.MenuManager.API_HostAddress}}/api/Category
 Accept: application/json
 
 ###

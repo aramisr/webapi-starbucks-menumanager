@@ -1,5 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Starbucks.MenuManager.API.Domain.Entities;
 using Starbucks.MenuManager.API.Persistence.Contexts;
+using Starbucks.MenuManager.API.Resources;
+using System.Runtime.CompilerServices;
 
 namespace Starbucks.MenuManager.API.Extensions
 {
@@ -14,14 +18,81 @@ namespace Starbucks.MenuManager.API.Extensions
                 try
                 {
                     var context = service.GetRequiredService<StarbucksDbContext>();
-                    context.Database.MigrateAsync();
+                    await context.Database.MigrateAsync();
+                    await SeedData(context, environment);
+
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     var logger = loggerFactory.CreateLogger<Program>();
                     logger.LogError(ex, "Error en la migracion");
                 }
             }
+        }
+
+        private static async Task SeedData(StarbucksDbContext context, IWebHostEnvironment? environment)
+        {
+            if (context.Coffes.Any())
+            {
+                return;
+            }
+
+            if (environment is null)
+            {
+                throw new Exception("El environment no se cargo");
+            }
+
+            var rootPath = environment.ContentRootPath;
+            var fullPathCoffe = Path.Combine(rootPath, "Resources/coffe.json");
+            var coffeDataText = await File.ReadAllTextAsync(fullPathCoffe);
+            var data = JsonConvert.DeserializeObject<List<CoffeJson>>(coffeDataText) ?? Enumerable.Empty<CoffeJson>();
+
+            var ingredientMaster = new List<Ingredient>();
+            var coffeMaster = new List<Coffe>();
+            var random = new Random();
+            foreach (var coffeJson in data)
+            {
+                var ingredientsLocal = new List<Ingredient>();
+                //Buscar todos los ingredientes
+                foreach (var ingr in coffeJson.Ingredients)
+                {
+                    var ingredient = ingredientMaster.
+                                     Where(s => string.Equals(s.Name, ingr,  StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();//Agregar los ingredientes que no existan en la lista, los que ya existen no se agregaran
+
+                    //Si el ingrediente no existe, agregarlo a la lista master
+                    if (ingredient is null)
+                    {
+                        ingredient = new Ingredient
+                        {
+                            Id = Guid.NewGuid(),
+                            Name = ingr
+                        };
+                        ingredientMaster.Add(ingredient);
+                    }
+                    ingredientsLocal.Add(ingredient);
+                }
+
+                var coffe = new Coffe
+                {
+                    Name = coffeJson.Title!,
+                    Description = coffeJson.Description,
+                    Imagen = coffeJson.Image,
+                    CategoryId = coffeJson.Category,
+                    Price = RandomPrice(random, 2, 15),
+                    Ingredients = ingredientsLocal
+                };
+
+                coffeMaster.Add(coffe);
+            }
+
+            await context.Ingredients.AddRangeAsync(ingredientMaster);
+            await context.Coffes.AddRangeAsync(coffeMaster);
+            await context.SaveChangesAsync();
+        }
+        private static decimal RandomPrice(Random random, double min, double max)
+        {
+            return Convert
+                .ToDecimal(Math.Round(random.NextDouble() * Math.Abs(max - min) + min, 2));
         }
     }
 }

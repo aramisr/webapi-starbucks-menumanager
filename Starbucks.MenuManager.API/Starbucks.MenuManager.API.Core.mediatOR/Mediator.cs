@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Starbucks.MenuManager.API.Core.mediatOR.Contracts;
+using Core.mediatOR.Contracts;
 
-namespace Starbucks.MenuManager.API.Core.mediatOR
+namespace Core.mediatOR
 {
     public class Mediator : IMediator
     {

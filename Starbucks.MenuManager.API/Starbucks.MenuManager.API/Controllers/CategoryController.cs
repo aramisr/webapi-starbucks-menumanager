@@ -1,24 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Core.mediatOR.Contracts;
 using Starbucks.MenuManager.API.Domain.Entities;
-using Starbucks.MenuManager.API.Persistence.Contexts;
+using static Starbucks.MenuManager.API.Application.Categories.Querys.CategoryListGet;
 
 namespace Starbucks.MenuManager.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class CategoryController(IMediator mediator) : ControllerBase
     {
-        private readonly StarbucksDbContext _context;
-        public CategoryController(StarbucksDbContext context)
-        {
-            _context = context;
-        }
+        private readonly IMediator _mediator = mediator;
 
         [HttpGet] 
-        public async Task<List<Category>> Get()
+        public async Task<List<Category>> Get(CancellationToken cancellationToken)
         {
-           return await _context.Categories.ToListAsync();
+            var query = new Query();
+            var resultados = await _mediator.Send(query, cancellationToken);
+            return resultados;
         }
     }
 }

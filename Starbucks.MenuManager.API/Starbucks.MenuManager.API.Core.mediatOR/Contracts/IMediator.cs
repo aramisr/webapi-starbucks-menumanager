@@ -1,6 +1,4 @@
-﻿
-
-namespace Starbucks.MenuManager.API.Core.mediatOR.Contracts
+﻿namespace Core.mediatOR.Contracts
 {
     public interface IMediator
     {

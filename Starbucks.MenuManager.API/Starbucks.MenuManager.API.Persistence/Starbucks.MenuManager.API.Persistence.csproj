@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Starbucks.MenuManager.API.Application\Starbucks.MenuManager.API.Application.csproj" />
     <ProjectReference Include="..\Starbucks.MenuManager.API.Domain\Starbucks.MenuManager.API.Domain.csproj" />
   </ItemGroup>
 

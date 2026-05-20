@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Starbucks.MenuManager.API.T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{41DBF608-8845-4B53-88A3-E120325D5D04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbucks.MenuManager.API.Core.mediatOR", "Starbucks.MenuManager.API.Core.mediatOR\Starbucks.MenuManager.API.Core.mediatOR.csproj", "{30061789-C83C-4246-9D26-F92F36C26B1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.mediatOR", "Starbucks.MenuManager.API.Core.mediatOR\Core.mediatOR.csproj", "{30061789-C83C-4246-9D26-F92F36C26B1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Mappy", "Core.Mappy\Core.Mappy.csproj", "{B9DF9CBD-7B44-4557-9A9B-4F355AC7B59B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{30061789-C83C-4246-9D26-F92F36C26B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30061789-C83C-4246-9D26-F92F36C26B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30061789-C83C-4246-9D26-F92F36C26B1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DF9CBD-7B44-4557-9A9B-4F355AC7B59B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DF9CBD-7B44-4557-9A9B-4F355AC7B59B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DF9CBD-7B44-4557-9A9B-4F355AC7B59B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DF9CBD-7B44-4557-9A9B-4F355AC7B59B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{D302182E-212A-4003-A629-575CD6ABFD15} = {1451398E-98F1-4516-BF85-05A6884EC4A5}
 		{73B93A45-D3B6-4E29-A7FC-E0DD5412A359} = {858242EE-C8A6-4BA3-B3F1-D433D103528D}
 		{30061789-C83C-4246-9D26-F92F36C26B1F} = {41DBF608-8845-4B53-88A3-E120325D5D04}
+		{B9DF9CBD-7B44-4557-9A9B-4F355AC7B59B} = {41DBF608-8845-4B53-88A3-E120325D5D04}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0EB24DD0-1EA5-4AC8-B47A-E2D535B59562}

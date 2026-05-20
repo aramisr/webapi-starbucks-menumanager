@@ -7,12 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Starbucks.MenuManager.API.Core.mediatOR\Core.mediatOR.csproj" />
+    <ProjectReference Include="..\Starbucks.MenuManager.API.Domain\Starbucks.MenuManager.API.Domain.csproj" />
+    <ProjectReference Include="..\Starbucks.MenuManager.API.Persistence\Starbucks.MenuManager.API.Persistence.csproj" />
     <ProjectReference Include="..\Starbucks.MenuManager.API.Transversal\Starbucks.MenuManager.API.Transversal.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Interfaces\Services\" />
     <Folder Include="Interfaces\Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
   </ItemGroup>
 
 </Project>

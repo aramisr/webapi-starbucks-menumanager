@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Starbucks.MenuManager.API.Persistence.Contexts;
-using System.Net.NetworkInformation;
 
 namespace Starbucks.MenuManager.API.Persistence
 {

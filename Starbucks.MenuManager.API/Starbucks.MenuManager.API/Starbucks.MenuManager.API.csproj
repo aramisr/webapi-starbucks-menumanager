@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Starbucks.MenuManager.API.Application\Starbucks.MenuManager.API.Application.csproj" />
-    <ProjectReference Include="..\Starbucks.MenuManager.API.Persistence\Starbucks.MenuManager.API.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>

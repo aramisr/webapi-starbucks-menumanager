@@ -1,4 +1,5 @@
 using Starbucks.MenuManager.API.Extensions;
+using Starbucks.MenuManager.API.Application;
 using Starbucks.MenuManager.API.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,9 +8,8 @@ var environment = builder.Environment;
 // Add services to the container.
 
 builder.Services.AddControllers();
-
+builder.Services.AddApplication();
 builder.Services.AddPersistence(builder.Configuration);
-
 //builder.Services.AddSwagger();
 
 var app = builder.Build();

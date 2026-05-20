@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Core.mediatOR.Contracts;
+using System.Reflection;
+using Scrutor;
 
-namespace Starbucks.MenuManager.API.Core.mediatOR
+namespace Core.mediatOR
 {
-    internal class ServiceCollectionExtensions
+    public static class ServiceCollectionExtensions
     {
+        public static IServiceCollection AddMediatOR(this IServiceCollection services, params Assembly[] assemblies) 
+        {
+            services.AddScoped<IMediator, Mediator>();
+
+            services.Scan(scan => scan.FromAssemblies(assemblies)
+                                      .AddClasses(c => c.AssignableTo(typeof(IRequestHandler<,>)))
+                                      .AsImplementedInterfaces()
+                                      .WithTransientLifetime()
+                         );
+
+            return services;
+        }
     }
 }

@@ -1,6 +1,9 @@
 using Starbucks.MenuManager.API.Extensions;
 using Starbucks.MenuManager.API.Application;
 using Starbucks.MenuManager.API.Persistence;
+using Core.Mappy.Interfaces;
+using Core.Mappy.Extensions;
+using Starbucks.MenuManager.API.Application.Categories.DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 var environment = builder.Environment;
@@ -31,6 +34,8 @@ var app = builder.Build();
 //    });
 //}
 
+var mapper = app.Services.GetRequiredService<IMapper>();
+mapper.RegisterMappings(typeof(CategoryMappingProfile).Assembly);
 await app.ApplyMigration(environment);
 
 // Configure the HTTP request pipeline. 

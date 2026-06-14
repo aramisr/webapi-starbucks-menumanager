@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Core.mediatOR.Contracts;
-using Starbucks.MenuManager.API.Domain.Entities;
 using static Starbucks.MenuManager.API.Application.Categories.Querys.CategoryListGet;
+using Starbucks.MenuManager.API.Application.Categories.DTOs;
 
 namespace Starbucks.MenuManager.API.Controllers
 {
@@ -12,7 +12,7 @@ namespace Starbucks.MenuManager.API.Controllers
         private readonly IMediator _mediator = mediator;
 
         [HttpGet] 
-        public async Task<List<Category>> Get(CancellationToken cancellationToken)
+        public async Task<List<CategoryResponse>> Get(CancellationToken cancellationToken)
         {
             var query = new Query();
             var resultados = await _mediator.Send(query, cancellationToken);

@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Core.Mappy\Core.Mappy.csproj" />
     <ProjectReference Include="..\Starbucks.MenuManager.API.Core.mediatOR\Core.mediatOR.csproj" />
     <ProjectReference Include="..\Starbucks.MenuManager.API.Domain\Starbucks.MenuManager.API.Domain.csproj" />
     <ProjectReference Include="..\Starbucks.MenuManager.API.Persistence\Starbucks.MenuManager.API.Persistence.csproj" />

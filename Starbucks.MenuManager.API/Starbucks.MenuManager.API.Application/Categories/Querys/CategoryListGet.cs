@@ -1,21 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Core.mediatOR.Contracts;
-using Starbucks.MenuManager.API.Domain.Entities;
 using Starbucks.MenuManager.API.Persistence.Contexts;
+using Starbucks.MenuManager.API.Application.Categories.DTOs;
+using Core.Mappy.Interfaces;
 
 namespace Starbucks.MenuManager.API.Application.Categories.Querys
 {
     public class CategoryListGet
     {
-        public class Query : IRequest<List<Category>>
-        {}
+        public class Query : IRequest<List<CategoryResponse>>
+        { }
 
-        public class Handler(StarbucksDbContext context) : IRequestHandler<Query, List<Category>>
+        public class Handler(
+            StarbucksDbContext context,
+            IMapper mapper
+        ) 
+        : IRequestHandler<Query, List<CategoryResponse>>
         {
             private readonly StarbucksDbContext _context = context;
-            public async Task<List<Category>> Handle(Query request, CancellationToken cancellationToken)
+            private readonly IMapper _mapper = mapper;
+            public async Task<List<CategoryResponse>> Handle(Query request, CancellationToken cancellationToken)
             {
-                return await _context.Categories.ToListAsync();
+                var categories = await _context.Categories.ToListAsync();
+                return _mapper.Map<List<CategoryResponse>>(categories);      
             }
         }
     }

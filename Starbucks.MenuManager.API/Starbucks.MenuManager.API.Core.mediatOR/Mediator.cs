@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Core.mediatOR.Contracts;
+using Core.MediatOR.Contracts;
 
 namespace Core.mediatOR
 {
@@ -28,7 +29,24 @@ namespace Core.mediatOR
                 );
             }
 
-            return await handler.Handle((dynamic)request, cancellationToken);
+            //Llamar a Delegate y a los Behavior
+            var behaviorType = typeof(IPipelineBehavior<,>)
+                .MakeGenericType(request.GetType(), typeof(TResponse));
+
+            var behaviors = _provider
+                .GetServices(behaviorType).Cast<dynamic>().Reverse().ToList();
+
+            RequestHandlerDelegate<TResponse> handlerDelegate = 
+                () => handler.Handle((dynamic)request, cancellationToken);//La ejecucion del handler, depedendera del delegate del Pipeline
+            
+            //Ejecutar cada uno de los handler de los Behavior
+            foreach( var behavior in behaviors)
+            {
+                var next = handlerDelegate;
+                handlerDelegate = () => behavior.Handle((dynamic)request, cancellationToken, next);
+            }
+
+            return await handlerDelegate();
         }
     }
 }

@@ -10,9 +10,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Cafe Colombiano",
-  "description": "Cafe de las costas del Caribe",
-  "price": 50,
+  "name": "",
+  "description": "",
+  "price": 0,
   "categoryId": 1,
   "imagen": ""
 }

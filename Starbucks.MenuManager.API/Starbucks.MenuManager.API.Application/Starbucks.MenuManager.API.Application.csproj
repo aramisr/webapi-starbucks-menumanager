@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Mappy\Core.Mappy.csproj" />
-    <ProjectReference Include="..\Starbucks.MenuManager.API.Core.mediatOR\Core.mediatOR.csproj" />
+    <ProjectReference Include="..\Starbucks.MenuManager.API.Core.mediatOR\Core.MediatOR.csproj" />
     <ProjectReference Include="..\Starbucks.MenuManager.API.Domain\Starbucks.MenuManager.API.Domain.csproj" />
     <ProjectReference Include="..\Starbucks.MenuManager.API.Persistence\Starbucks.MenuManager.API.Persistence.csproj" />
     <ProjectReference Include="..\Starbucks.MenuManager.API.Transversal\Starbucks.MenuManager.API.Transversal.csproj" />
@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
   </ItemGroup>
 

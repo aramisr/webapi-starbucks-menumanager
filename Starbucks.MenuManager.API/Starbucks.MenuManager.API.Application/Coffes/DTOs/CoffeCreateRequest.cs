@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Starbucks.MenuManager.API.Application.Coffes.DTOs
+﻿namespace Starbucks.MenuManager.API.Application.Coffes.DTOs
 {
     public class CoffeCreateRequest
     {

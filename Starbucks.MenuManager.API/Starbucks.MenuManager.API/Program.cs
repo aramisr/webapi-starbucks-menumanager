@@ -4,6 +4,7 @@ using Starbucks.MenuManager.API.Persistence;
 using Core.Mappy.Interfaces;
 using Core.Mappy.Extensions;
 using Starbucks.MenuManager.API.Application.Categories.DTOs;
+using Starbucks.MenuManager.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 var environment = builder.Environment;
@@ -45,5 +46,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.Run();

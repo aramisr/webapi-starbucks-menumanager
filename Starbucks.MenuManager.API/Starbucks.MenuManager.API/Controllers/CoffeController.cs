@@ -6,18 +6,27 @@ using System.Threading;
 
 namespace Starbucks.MenuManager.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/coffes")]
     [ApiController]
     public class CoffeController(IMediator mediator) : ControllerBase
     {
         private readonly IMediator _mediator = mediator;
 
         [HttpPost]
-        public async Task<Guid> CreateCoffe(CoffeCreateRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> CreateCoffe(CoffeCreateRequest request, CancellationToken cancellationToken)
         {
-            var results = await _mediator.Send(new CoffeCreate.Command { CoffeCreateRequest = request }, cancellationToken);
+            var result = await _mediator.Send(
+                new CoffeCreate.Command { CoffeCreateRequest = request }, 
+                cancellationToken
+            );
 
-            return results;
+            if (result.IsSuccess)
+            {
+                var coffeId = result.Value;
+                return Created($"api/coffes/{coffeId}", coffeId);
+            }
+
+            return BadRequest(result.Errors);
         }
     }
 }

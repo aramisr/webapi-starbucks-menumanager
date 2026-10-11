@@ -1,4 +1,4 @@
-﻿using Starbucks.MenuManager.API.Application.Abstractions;
+﻿using Starbucks.MenuManager.API.Domain.Abstractions;
 
 namespace Starbucks.MenuManager.API.Middleware
 {

@@ -1,19 +1,19 @@
 @Starbucks.MenuManager.API_HostAddress = http://localhost:5088
 
-GET {{Starbucks.MenuManager.API_HostAddress}}/api/Category
+GET {{Starbucks.MenuManager.API_HostAddress}}/api/categories
 Accept: application/json
 
 ###
 
-POST {{Starbucks.MenuManager.API_HostAddress}}/api/Coffe
+POST {{Starbucks.MenuManager.API_HostAddress}}/api/coffes
 Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "",
-  "description": "",
-  "price": 0,
-  "categoryId": 1,
+  "name": "Cafe salvadoreño premium",
+  "description": "Cafe del pueblo premium",
+  "price": 100,
+  "categoryId": 2,
   "imagen": ""
 }
 

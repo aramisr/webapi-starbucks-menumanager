@@ -1,14 +1,17 @@
 ﻿using Core.Mappy.Interfaces;
 using Core.mediatOR.Contracts;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore;
+using Starbucks.MenuManager.API.Application.Abstractions;
 using Starbucks.MenuManager.API.Application.Coffes.DTOs;
+using Starbucks.MenuManager.API.Domain.Entities;
 using Starbucks.MenuManager.API.Persistence.Contexts;
 
 namespace Starbucks.MenuManager.API.Application.Coffes.Commands
 {
     public class CoffeCreate
     {
-        public class Command : IRequest<Guid> 
+        public class Command : IRequest<Result<Guid>> 
         {
             public required CoffeCreateRequest CoffeCreateRequest { get; set; }
         }
@@ -32,17 +35,26 @@ namespace Starbucks.MenuManager.API.Application.Coffes.Commands
         }
 
         public class Handler(StarbucksDbContext context, IMapper mapper) 
-            : IRequestHandler<Command, Guid>
+            : IRequestHandler<Command, Result<Guid>>
         {
             private readonly StarbucksDbContext _context = context;
             private readonly IMapper _mapper = mapper;
-            public async Task<Guid> Handle(Command request, CancellationToken cancellationToken) 
+            public async Task<Result<Guid>> Handle(Command request, CancellationToken cancellationToken) 
             {
+                var nombreCafeIfExists = await _context.Coffes.AnyAsync(
+                                                            x => x.Name == request.CoffeCreateRequest.Name
+                                                         );
+                if (nombreCafeIfExists)
+                {
+                    return Result<Guid>.Failure(
+                       CoffeErrors.NombreDuplicado
+                    );
+                }
                 var coffe = _mapper.Map<Domain.Entities.Coffe>(request.CoffeCreateRequest);
                 _context.Add(coffe);
                 await _context.SaveChangesAsync(cancellationToken);
 
-                return coffe.Id;
+                return Result<Guid>.Success(coffe.Id);
             }
         }
     }

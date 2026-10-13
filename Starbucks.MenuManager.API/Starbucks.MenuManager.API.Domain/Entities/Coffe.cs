@@ -21,5 +21,11 @@ namespace Starbucks.MenuManager.API.Domain.Entities
             "COFFE.NOMBRE_DUPLICADO",
             "El nombre del cafe ya existe en el sistema"
         );
+
+        public static Error CoffeNoExiste = new Error
+       (
+           "COFFE.NO_EXISTE",
+           "El cafe con el id ingresado no existe en el sistema"
+       );
     }
 }

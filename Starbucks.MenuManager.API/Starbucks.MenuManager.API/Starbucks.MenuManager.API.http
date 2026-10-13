@@ -10,7 +10,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Cafe salvadoreño premium",
+  "name": "Cafe honduras 3",
   "description": "Cafe del pueblo premium",
   "price": 100,
   "categoryId": 2,
@@ -18,3 +18,20 @@ Content-Type: application/json
 }
 
 ###
+
+PUT {{Starbucks.MenuManager.API_HostAddress}}/api/coffes/956e76fb-4f21-435d-b6c4-f1660c347355
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Cafe honduras",
+  "description": "Cafe del pueblo",
+  "price": 50,
+  "categoryId": 2,
+  "imagen": ""
+}
+
+###
+
+GET {{Starbucks.MenuManager.API_HostAddress}}/api/coffes/956e76fb-4f21-435d-b6c4-f1660c347355
+Accept: application/json

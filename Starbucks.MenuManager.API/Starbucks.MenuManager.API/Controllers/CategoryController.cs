@@ -14,8 +14,8 @@ namespace Starbucks.MenuManager.API.Controllers
         public async Task<IActionResult> Get(CancellationToken cancellationToken)
         {
             var query = new Query();
-            var resultados = await _mediator.Send(query, cancellationToken);
-            return Ok(resultados);
+            var result = await _mediator.Send(query, cancellationToken);
+            return Ok(result.Value);
         }
     }
 }

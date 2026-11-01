@@ -34,7 +34,6 @@ namespace Starbucks.MenuManager.API.Controllers
         public async Task<IActionResult> UpdateCoffe(Guid id, CoffeUpdateRequest request, CancellationToken cancellationToken)
         {
             var command = new CoffeUpdate.Command { Id = id, CoffeUpdateRequest = request };
-
             var result = await _mediator.Send(command, cancellationToken);
 
             if (result.IsFailure)
@@ -45,19 +44,39 @@ namespace Starbucks.MenuManager.API.Controllers
             return NoContent();
         }
 
-
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDetails(Guid id, CancellationToken cancellationToken)
         {
-            
             var query = new CoffeDetail.Query { Id = id };
-
             var result = await _mediator.Send(query, cancellationToken);
 
             if (result.IsFailure)
             {
                 return NotFound(result.Errors);
             }
+
+            return Ok(result.Value);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id, CancellationToken cancellationToken)
+        {
+            var command = new CoffeDelete.Command { Id = id };
+            var result = await _mediator.Send(command, cancellationToken);
+
+            if (result.IsFailure)
+            {
+                return NotFound(result.Errors);
+            }
+
+            return NoContent();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get(CancellationToken cancellationToken)
+        {
+            var query = new CoffeGet.Query();
+            var result = await _mediator.Send(query, cancellationToken);
 
             return Ok(result.Value);
         }

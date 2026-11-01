@@ -11,7 +11,7 @@ namespace Starbucks.MenuManager.API.Application.Categories.DTOs
                 cfg =>
                 {
                     cfg.Map(dest => dest.CategoryId, src => src.Id);
-                    cfg.Map(dest => dest.NameTest, src => src.Name);
+                    cfg.Map(dest => dest.Name, src => src.Name);
                 }
             );
         }
